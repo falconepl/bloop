@@ -140,12 +140,12 @@ class HotBloopNoIncrementalBenchmark {
 
     val builder = new ProcessBuilder(
       sys.props("java.home") + "/bin/java",
+      "-Dbloop.zinc.disabled=true",
       "-Xms2G",
       findMaxHeap(project),
       "-XX:ReservedCodeCacheSize=128m",
       "-jar",
       bloopJarPath,
-      "-Dbloop.zinc.disabled=true",
       "--config-dir",
       configDir.toAbsolutePath.toString
     )
